@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PSR</title>
+  <!-- Sets initial viewport load and disables zooming  -->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Include the compiled Ratchet CSS -->
+  <link href="/css/ratchet.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- Optionally, include either the iOS or Android theme -->
+  <link href="/css/ratchet-theme-ios.css" rel="stylesheet">
+  <!-- Include the compiled Ratchet JS -->
+  <script src="/js/ratchet.js"></script>
+</head>
+<body>
+  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" href="psr.html" data-ignore="push" data-transition="slide-out"></a>
+    <h1 class="title">Adicionar códigos</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <input id="txtCodigo" type="text" placeholder="Código" style="text-align: center" disabled>
+  </div>
+  <div class="content">
+    <div class="card">
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código 0
+            <p>Ausência de sangramento e fatores retentivos de placa e faixa colorida totalmente visível.</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código 1
+            <p>Presença de sangramento à sondagem, ausência de fatores retentivos de placa e faixa colorida totalmente
+              visível.</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código 2
+            <p>Presença de fatores retentivos de placa (cálculo, restaurações com falhas marginais e cáries e faixa
+              colorida totalmente visível).</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código 3
+            <p>Faixa colorida parcialmente visível (4 a 5 mm).</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código 4
+            <p>Faixa colorida não mais visível (6mm ou mais).</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código *
+            <p>Recessão gengival maior que 3mm, mobilidade, envolvimento de furca e problemas muco-gengivais.</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          <div class="media-body">
+            Código X
+            <p>Sextante ausente.</p>
+          </div>
+          <div class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

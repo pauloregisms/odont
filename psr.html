@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PSR</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+
+    <script src="js/ratchet.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/dao.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/psr.js"></script>
+
+    <!-- <script src="cordova.js"></script> -->
+
+    <style>
+        button {
+            height: 2.25em;
+            width: 3em;
+        }
+
+        .tricolumn {
+            margin-top: 8px;
+            display: grid;
+            grid-template-columns: 1fr 6fr 1fr;
+            grid-gap: 4px;
+            text-align: center;
+            padding-right: 4px;
+        }
+
+        .pentacolumn {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 2px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" href="record.html" data-ignore="push"></a>
+        <a class="icon pull-right" onclick="console.log('clicked')">
+            <img class="media-object" src="../img/microphone.png"></img>
+        </a>
+        <h1 class="title">PSR</h1>
+    </header>
+    <div class="content">
+        <p class="content-padded">Sextantes</p>
+        <div class="card">
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">I</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(1,0)" class="control-item active">0</a>
+                    <a onclick="setCode(1,1)" class="control-item">1</a>
+                    <a onclick="setCode(1,2)" class="control-item">2</a>
+                    <a onclick="setCode(1,3)" class="control-item">3</a>
+                    <a onclick="setCode(1,4)" class="control-item">4</a>
+                    <a onclick="setCode(1,5)" class="control-item">5</a>
+                    <a onclick="setCode(1,6)" class="control-item">X</a>
+                </div>
+                <button id="star_1" class="btn" onclick="clickButton(1)"><h4>*</h4></button>
+            </div>
+
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">II</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(2,0)" class="control-item active">0</a>
+                    <a onclick="setCode(2,1)" class="control-item">1</a>
+                    <a onclick="setCode(2,2)" class="control-item">2</a>
+                    <a onclick="setCode(2,3)" class="control-item">3</a>
+                    <a onclick="setCode(2,4)" class="control-item">4</a>
+                    <a onclick="setCode(2,5)" class="control-item">5</a>
+                    <a onclick="setCode(2,6)" class="control-item">X</a>
+                </div>
+                <button id="star_2" class="btn" onclick="clickButton(2)"><h4>*</h4></button>
+            </div>
+
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">III</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(3,0)" class="control-item active">0</a>
+                    <a onclick="setCode(3,1)" class="control-item">1</a>
+                    <a onclick="setCode(3,2)" class="control-item">2</a>
+                    <a onclick="setCode(3,3)" class="control-item">3</a>
+                    <a onclick="setCode(3,4)" class="control-item">4</a>
+                    <a onclick="setCode(3,5)" class="control-item">5</a>
+                    <a onclick="setCode(3,6)" class="control-item">X</a>
+                </div>
+                <button id="star_3" class="btn" onclick="clickButton(3)"><h4>*</h4></button>
+            </div>
+
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">IV</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(4,0)" class="control-item active">0</a>
+                    <a onclick="setCode(4,1)" class="control-item">1</a>
+                    <a onclick="setCode(4,2)" class="control-item">2</a>
+                    <a onclick="setCode(4,3)" class="control-item">3</a>
+                    <a onclick="setCode(4,4)" class="control-item">4</a>
+                    <a onclick="setCode(4,5)" class="control-item">5</a>
+                    <a onclick="setCode(4,6)" class="control-item">X</a>
+                </div>
+                <button id="star_4" class="btn" onclick="clickButton(4)"><h4>*</h4></button>
+            </div>
+
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">V</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(5,0)" class="control-item active">0</a>
+                    <a onclick="setCode(5,1)" class="control-item">1</a>
+                    <a onclick="setCode(5,2)" class="control-item">2</a>
+                    <a onclick="setCode(5,3)" class="control-item">3</a>
+                    <a onclick="setCode(5,4)" class="control-item">4</a>
+                    <a onclick="setCode(5,5)" class="control-item">5</a>
+                    <a onclick="setCode(5,6)" class="control-item">X</a>
+                </div>
+                <button id="star_5" class="btn" onclick="clickButton(5)"><h4>*</h4></button>
+            </div>
+
+            <div class="tricolumn">
+                <p style="padding-top: 4px;">VI</p>
+                <div class="segmented-control">
+                    <a onclick="setCode(6,0)" class="control-item active">0</a>
+                    <a onclick="setCode(6,1)" class="control-item">1</a>
+                    <a onclick="setCode(6,2)" class="control-item">2</a>
+                    <a onclick="setCode(6,3)" class="control-item">3</a>
+                    <a onclick="setCode(6,4)" class="control-item">4</a>
+                    <a onclick="setCode(6,5)" class="control-item">5</a>
+                    <a onclick="setCode(6,6)" class="control-item">X</a>
+                </div>
+                <button id="star_6" class="btn" onclick="clickButton(6)"><h4>*</h4></button>
+            </div>
+        </div>
+        <p class="content-padded">Observações</p>
+        <div style="padding: 10px">
+            <textarea id="note" rows="3"></textarea>
+        </div>
+    </div>
+    <nav class="bar bar-tab">
+        <a class="tab-item active" onclick="save()" data-ignore="push">
+            <span class="icon icon-check"></span>
+            <span class="tab-label">Salvar</span>
+        </a>
+    </nav>
+    <script>initPSR();</script>
+</body>
+
+</html>

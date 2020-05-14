@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Periograma</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+
+    <script src="js/ratchet.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/dao.js"></script>
+    <script src="js/periogram.js"></script>
+
+    <script src="cordova.js"></script>
+    
+    <style>
+        button {
+            height: 2.7em;
+        }
+
+        .quicknav {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-gap: 2px;
+            padding: 4px;
+            align-self: center;
+        }
+
+        .tricolumn {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-self: center;
+            grid-gap: 4px;
+        }
+
+        .bicolumn{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .tricell{
+            padding: 10px;
+        }
+
+        .keyboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2px;
+            padding: 2px;
+        }
+
+        .title-spam{
+            padding-top: 4px;
+            text-align: center;
+        }
+
+        .button-navigation {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2px;
+            padding: 4px;
+        }
+
+        .control-keyboard~.content {
+            padding-bottom: 94px;
+        }
+        .toggle.active {
+            background-color: transparent;
+            border: 2px solid #cf2d28;
+            -webkit-box-shadow: inset 0 0 0 13px #cf2d28;
+            box-shadow: inset 0 0 0 13px #cf2d28;
+        }
+        .toggle.active .toggle-handle {
+            border-color: #cf2d28;
+        }
+        .badge {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .btn {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" href="record.html" data-ignore="push"></a>
+        <h1 id="title" class="title"></h1>
+        <a href="#modal" class="icon icon-more-vertical pull-right"></a>
+    </header>
+    <div class="content">
+        <div class="bicolumn card">
+            <span class="title-spam"></span>
+            <div class="tricolumn"> 
+                <span id="site_1" class="title-spam">D</span>
+                <span id="site_2" class="title-spam">V</span>
+                <span id="site_3" class="title-spam">M</span>
+            </div>
+            <p class="content-padded">Sangramento</p>
+            <div class="tricolumn ">
+                <div id="sang_1" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <div id="sang_2" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <div id="sang_3" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </div>
+            <p class="content-padded">PS</p>
+            <div class="tricolumn">
+                <span id="ps_1" class="badge" onclick="active(1,1)">0</span>
+                <span id="ps_2" class="badge" onclick="active(2,1)">0</span>
+                <span id="ps_3" class="badge" onclick="active(3,1)">0</span>
+            </div>
+            <p class="content-padded">NG</p>
+            <div class="tricolumn">
+                <span id="ng_1" class="badge" onclick="active(1,2)">0</span>
+                <span id="ng_2" class="badge" onclick="active(2,2)">0</span>
+                <span id="ng_3" class="badge" onclick="active(3,2)">0</span>
+            </div>
+            <p class="content-padded">NI</p>
+            <div class="tricolumn">
+                <span id="ni_1" class="badge">0</span>
+                <span id="ni_2" class="badge">0</span>
+                <span id="ni_3" class="badge">0</span>
+            </div>
+            <p class="content-padded">Furca</p>
+            <div class="tricolumn">
+                <button id="furc_1" style="height: 2em" class="btn" onclick="setFurcLevel('furc_1')">0</button>
+                <button id="furc_2" style="height: 2em" class="btn" onclick="setFurcLevel('furc_2')">0</button>
+                <button id="furc_3" style="height: 2em" class="btn" onclick="setFurcLevel('furc_3')">0</button>
+            </div>
+            <p class="content-padded">Mobilidade</p>
+            <div class="tricolumn">
+                <button id="mobility" style="height: 2em" class="btn" onclick="setMobLevel('mobility')">0</button>
+                <p></p>
+                <button id="next_input" style="height: 2em" class="btn btn-positive btn-outlined" onclick="activeNextInput()">
+                    <span class="icon icon-right-nav"></span>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="keyboard">
+                <button id="btn7" onclick="setCurrentBadjgeValue(7)" class="btn btn-primary btn-outlined">7</button>
+                <button id="btn8" onclick="setCurrentBadjgeValue(8)" class="btn btn-primary btn-outlined">8</button>
+                <button id="btn9" onclick="setCurrentBadjgeValue(9)" class="btn btn-primary btn-outlined">9</button>
+                <button id="btn4" onclick="setCurrentBadjgeValue(4)" class="btn btn-primary btn-outlined">4</button>
+                <button id="btn5" onclick="setCurrentBadjgeValue(5)" class="btn btn-primary btn-outlined">5</button>
+                <button id="btn6" onclick="setCurrentBadjgeValue(6)" class="btn btn-primary btn-outlined">6</button>
+                <button id="btn1" onclick="setCurrentBadjgeValue(1)" class="btn btn-primary btn-outlined">1</button>
+                <button id="btn2" onclick="setCurrentBadjgeValue(2)" class="btn btn-primary btn-outlined">2</button>
+                <button id="btn3" onclick="setCurrentBadjgeValue(3)" class="btn btn-primary btn-outlined">3</button>
+                <button id="btnMinus" onclick="setCurrentBadjgeValue('-')" class="btn btn-outlined">-</button>
+                <button id="btn0" onclick="setCurrentBadjgeValue(0)" class="btn btn-primary btn-outlined">0</button>
+                <button id="btnClear" onclick="setCurrentBadjgeValue('clear')" class="btn btn-negative btn-outlined">Apaga</button>
+            </div>
+        </div>
+    </div>
+    <nav class="bar bar-tab">
+        <a id="prev" class="tab-item active" onclick="prev()">
+            <span class="icon icon-back"></span>
+            <span class="tab-label">Anterior</span>
+        </a>
+        <a class="tab-item active" onclick="saveAndReturn()">
+            <span class="icon icon-check"></span>
+            <span class="tab-label">Salvar</span>
+        </a>
+        <a id="next" class="tab-item active" onclick="next()">
+            <span class="icon icon-forward"></span>
+            <span class="tab-label">Próximo</span>
+        </a>
+    </nav>
+    <div id="modal" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#modal"></a>
+            <h1 class="title">Ir para</h1>
+        </header>
+        <div class="content">
+            <div class="card">
+                <div class="segmented-control">
+                    <a id="vestibular" class="control-item active">
+                        Vestibular
+                    </a>
+                    <a id="lingual" class="control-item">
+                        Lingual
+                    </a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="quicknav">
+                    <button id="btnlink_18" disabled class="btn" onclick="goTo(18)">18</button>
+                    <button id="btnlink_17" disabled class="btn" onclick="goTo(17)">17</button>
+                    <button id="btnlink_16" disabled class="btn" onclick="goTo(16)">16</button>
+                    <button id="btnlink_15" disabled class="btn" onclick="goTo(15)">15</button>
+                    <button id="btnlink_14" disabled class="btn" onclick="goTo(14)">14</button>
+                    <button id="btnlink_13" disabled class="btn" onclick="goTo(13)">13</button>
+                    <button id="btnlink_12" disabled class="btn" onclick="goTo(12)">12</button>
+                    <button id="btnlink_11" disabled class="btn" onclick="goTo(11)">11</button>
+
+                    <button id="btnlink_21" disabled class="btn" onclick="goTo(21)">21</button>
+                    <button id="btnlink_22" disabled class="btn" onclick="goTo(22)">22</button>
+                    <button id="btnlink_23" disabled class="btn" onclick="goTo(23)">23</button>
+                    <button id="btnlink_24" disabled class="btn" onclick="goTo(24)">24</button>
+                    <button id="btnlink_25" disabled class="btn" onclick="goTo(25)">25</button>
+                    <button id="btnlink_26" disabled class="btn" onclick="goTo(26)">26</button>
+                    <button id="btnlink_27" disabled class="btn" onclick="goTo(27)">27</button>
+                    <button id="btnlink_28" disabled class="btn" onclick="goTo(28)">28</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="quicknav">                    
+                    <button id="btnlink_48" disabled class="btn" onclick="goTo(48)">48</button>
+                    <button id="btnlink_47" disabled class="btn" onclick="goTo(47)">47</button>
+                    <button id="btnlink_46" disabled class="btn" onclick="goTo(46)">46</button>
+                    <button id="btnlink_45" disabled class="btn" onclick="goTo(45)">45</button>
+                    <button id="btnlink_44" disabled class="btn" onclick="goTo(44)">44</button>
+                    <button id="btnlink_43" disabled class="btn" onclick="goTo(43)">43</button>
+                    <button id="btnlink_42" disabled class="btn" onclick="goTo(42)">42</button>
+                    <button id="btnlink_41" disabled class="btn" onclick="goTo(41)">41</button>
+
+                    <button id="btnlink_31" disabled class="btn" onclick="goTo(31)">31</button>
+                    <button id="btnlink_32" disabled class="btn" onclick="goTo(32)">32</button>
+                    <button id="btnlink_33" disabled class="btn" onclick="goTo(33)">33</button>
+                    <button id="btnlink_34" disabled class="btn" onclick="goTo(34)">34</button>
+                    <button id="btnlink_35" disabled class="btn" onclick="goTo(35)">35</button>
+                    <button id="btnlink_36" disabled class="btn" onclick="goTo(36)">36</button>
+                    <button id="btnlink_37" disabled class="btn" onclick="goTo(37)">37</button>
+                    <button id="btnlink_38" disabled class="btn" onclick="goTo(38)">38</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        initPeriogram();
+    </script>
+</body>
+</html>

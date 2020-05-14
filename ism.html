@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta charset="utf-8">
+     <title>Sangramento Marginal</title>
+     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+     <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+     
+     <link href="css/ratchet.css" rel="stylesheet">
+     <link href="css/style.css" rel="stylesheet">
+     <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+     
+     <script src="js/ratchet.js"></script>
+     <script src="js/model.js"></script>
+     <script src="js/controller.js"></script>
+     <script src="js/dao.js"></script>
+     <script src="js/ism.js"></script>
+
+     <script src="cordova.js"></script>
+
+     <style>
+          .tetracolumn {
+            margin-top: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 4px;
+            text-align: center;
+            padding-right: 4px;
+        }
+     </style>
+</head>
+
+<body>
+     <header class="bar bar-nav">
+          <a class="icon icon-left-nav pull-left" href="record.html" data-ignore="push"></a>
+          <h1 class="title">Sangramento Marginal</h1>
+     </header>
+     <div class="content">
+          <div class="card">
+               <ul id="tooth_list" class="table-view">
+                    
+               </ul>
+          </div>
+          <!-- Espaço entre o fim da lista e a barra inferior -->
+          <div class="card">
+               <br><br>
+          </div>
+     </div>
+     <nav class="bar bar-tab">
+          <a class="tab-item active" onclick="save()">
+               <span class="icon icon-check"></span>
+               <span class="tab-label">Salvar</span>
+          </a>
+     </nav>
+     <script>
+          initISM();
+     </script>
+</body>
+
+</html>

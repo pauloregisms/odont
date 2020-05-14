@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ficha de Exame Periodontal</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+        <link href="css/ratchet.css" rel="stylesheet">
+        <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+
+        <script src="js/ratchet.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/dao.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/index.js"></script>
+
+        <!-- <script src="cordova.js"></script> -->
+    </head>
+
+    <body>
+        <header class="bar bar-nav">
+            <h1 class="title">Formulário Periodontológico</h1>
+        </header>
+        <div class="content">
+            <p class="content-padded">Lista de pacientes</p>
+            <div >
+            <ul id="table_patient" class="table-view">
+                <!--  -->
+            </ul>
+        </div>
+            <nav class="bar bar-tab">
+                <a class="tab-item active" onclick="addPatient()" href="record.html" data-ignore="push">
+                    <span class="icon icon-plus"></span>
+                    <span class="tab-label">Adicionar paciente</span>
+                </a>
+            </nav>
+        </div>
+        <script type="text/javascript" >
+            initApplication();
+        </script>
+    </body>
+</html>
